@@ -1,0 +1,10 @@
+/venv/
+/.idea/
+/workspace.xml
+/shelf/
+/study/__pyache__/
+secrets.json
+db.sqlite3
+/account/migrations
+/migrations
+/account/__pyache__/
