@@ -8,5 +8,8 @@
 <body>
     <button><a href="{% url 'account:signUp' %}">sign up</a></button>
     <button><a href="{% url 'account:login' %}">login</a></button>
+    {% if user.is_authenticated %}
+    <button><a href="{% url 'account:mypage' %}">mypage</a></button>
+    {% endif %}
 </body>
 </html>

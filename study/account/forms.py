@@ -1,5 +1,5 @@
 from django import forms
-from .models import CustomUser
+from .models import CustomUser,MyPage
 
 
 class SignUpForm(forms.ModelForm):
@@ -24,3 +24,9 @@ class SignUpForm(forms.ModelForm):
         if commit:
             user.save()
         return user
+    
+
+class MyPageForm(forms.ModelForm):
+    class Meta:
+        model=MyPage
+        fields = ['introduction', 'hobby', 'potpolio','profile_image']
