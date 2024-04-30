@@ -1,0 +1,22 @@
+<!-- edit_mypage.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit MyPage</title>
+</head>
+<body>
+    <h1>Edit MyPage</h1>
+    <p>username: {{ user.name }}</p>
+        <p>nickname: {{ user.nickname }}</p>
+        <p>major: {{ user.major }}</p>
+        <p>ID: {{ user.id }}</p>
+        <p>e-mail: {{ user.email }}</p>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+</body>
+</html>

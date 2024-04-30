@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
+from django.conf import settings
 #장고에서 기본적으로 제공해주는 유저 커스텀해서 만드는거
 
 class UserManager(BaseUserManager):
@@ -66,3 +67,14 @@ class CustomUser(AbstractBaseUser):
 
     def has_module_perms(self, app_label):
         return True
+    
+
+class MyPage(models.Model):
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='mypage')
+    introduction = models.CharField(max_length=300 ,blank=True)
+    hobby = models.CharField(max_length=100, blank=True)
+    profile_image = models.ImageField(upload_to='images/user', blank=True)
+    potpolio=models.CharField(max_length=300, blank=True)
+    
+    def __str__(self):
+        return self.user.id

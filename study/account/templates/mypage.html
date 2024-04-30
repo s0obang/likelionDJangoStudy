@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% if user.is_authenticated %}
+        {% if profile_image_message %}
+            <p>Profile Image: {{ profile_image_message }}</p>
+        {% else %}
+            <p>Profile Image: <img src="{{ mypage_info.profile_image.url }}" alt="Profile Image"></p>
+        {% endif %}
+        
+        <p>username: {{ user.name }}</p>
+        <p>nickname: {{ user.nickname }}</p>
+        <p>major: {{ user.major }}</p>
+        <p>ID: {{ user.id }}</p>
+        <p>e-mail: {{ user.email }}</p>
+
+        {% if introduction_message %}
+            <p>Introduction: {{ introduction_message }}</p>
+        {% else %}
+            <p>Introduction: {{ mypage_info.introduction }}</p>
+        {% endif %}
+
+        {% if potpolio_message %}
+            <p>Introduction: {{ potpolio_message }}</p>
+        {% else %}
+            <p>Portfolio: {{ mypage_info.potpolio }}</p>
+        {% endif %}
+
+        {% if hobby_message %}
+            <p>Hobby: {{ hobby_message }}</p>
+        {% else %}
+            <p>Hobby: {{ mypage_info.hobby }}</p>
+        {% endif %}
+        <button><a href="{% url 'account:mypageUpdate' %}">Edit</a></button>
+        <button><a href="{% url 'account:logout' %}">logout</a></button>
+        <button><a href="{% url 'main' %}">main</a></button>
+        
+    
+    {% endif %}
+</body>
+</html>
