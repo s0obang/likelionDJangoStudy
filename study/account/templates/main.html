@@ -6,10 +6,15 @@
     <title>Document</title>
 </head>
 <body>
-    <button><a href="{% url 'account:signUp' %}">sign up</a></button>
-    <button><a href="{% url 'account:login' %}">login</a></button>
+    <h1>방문 감사합니다 ^ㅡ^</h1>
+    <h1>방명록좀 써주실라우?</h1>
+    <!--여기에 방명록 페이지로 이동하는 버튼 만들기-->
+    <button><a href="{% url 'account:signUp' %}">회원가입</a></button>
+    <button><a href="{% url 'account:login' %}">로그인</a></button>
     {% if user.is_authenticated %}
-    <button><a href="{% url 'account:mypage' %}">mypage</a></button>
+    <button><a href="{% url 'account:mypage' %}">마이페이지</a></button>
+    <button><a href="{% url 'todo:todo_list' %}">TODO</a></button>
     {% endif %}
+    <button><a href="{% url 'guestbook:guestbook' %}">방명록</a></button>
 </body>
 </html>
