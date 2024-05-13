@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO LIST</title>
+</head>
+<body>
+    <h1>TODO 상세보기</h1>
+    <hr>
+    <h2>할일: {{ todo.title }}</h5>
+    <p >설명: {{ todo.description }}</p>
+    <button><a href="{% url 'todo:todo_list' %}">목록으로</a></button>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <h1>방명록 페이지*'3'*</h1>
+    <button><a href="{% url 'guestbook:write' %}">와 나도 쓰러갈래</a></button>
+    <br>
+        {% for book in books %}
+        <ul>
+            <li><p>작성자: {{ book.name }}</p></li>
+            <li><p>작성일: {{ book.write_time }}</p></li>
+            <li><p>방명록: {{ book.content }}</p></li>
+            <button><a href="{% url 'guestbook:deleteform' book.id %}">삭제</a></button>
+            <br><hr><br>
+        </ul>
+        {% endfor %}
+   
+    
+</body>
+</html>

@@ -26,5 +26,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', main, name='main'),
     path('account/', include('account.urls')),
+    path('guestbook/', include('guestbook.urls')),
+    path('todo/', include('todo.urls'))
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
+                                                                                                                                 
