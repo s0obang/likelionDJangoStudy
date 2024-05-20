@@ -4,6 +4,7 @@ from django.shortcuts import render,redirect
 from django.contrib import auth
 from django.contrib import messages
 from .models import CustomUser, MyPage
+from post.models import Post, PostImages
 
 # Create your views here.
 def signUp(request):
@@ -38,7 +39,8 @@ def logout(request):
     return redirect('main')
 
 def main(request):
-    return render(request,'main.html')
+    posts=Post.objects.all().order_by('write_time')
+    return render(request,'main.html',{'posts':posts})
 
 def mypage(request):
     user = request.user

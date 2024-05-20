@@ -14,7 +14,16 @@
     {% if user.is_authenticated %}
     <button><a href="{% url 'account:mypage' %}">마이페이지</a></button>
     <button><a href="{% url 'todo:todo_list' %}">TODO</a></button>
+    <button><a href="{% url 'post:write' %}">글 쓰기</a></button>
     {% endif %}
     <button><a href="{% url 'guestbook:guestbook' %}">방명록</a></button>
+    <br><hr><br>
+    <ul>
+        {% for post in posts %}
+            <li><a href="{% url 'post:detail' id=post.id %}">{{post.title}}</a></li>
+            <hr><br>
+        {% endfor %}
+    </ul>
+    
 </body>
 </html>
